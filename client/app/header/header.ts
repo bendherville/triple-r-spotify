@@ -27,15 +27,17 @@ export default class Header {
 
     private client_id = 'e37aec36cd5147cd87b5988fbf606724';
     private client_secret = '0dc0fab2797f436ea56e5982bb1dad3d';
-    private redirect_uri = 'http://localhost:3001/auth';
 
     private spotifyService;
 
     constructor(spotifyService:SpotifyService) {
         this.spotifyService = spotifyService;
 
+        //var redirect_uri = 'http://localhost:3001/auth';
+        var redirect_uri = `${window.location.host}//${window.location.host}/auth`;
+
         this.loginUrl = `https://accounts.spotify.com/authorize?response_type=token&client_id=${this.client_id}&scope=user-read-private%20user-read-email%20playlist-modify-private
-        &redirect_uri=${this.redirect_uri}`;
+        &redirect_uri=${redirect_uri}`;
 
         this.spotifyService.userProfile()
             .then(profile => {
