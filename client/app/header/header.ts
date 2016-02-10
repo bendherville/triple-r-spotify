@@ -33,8 +33,7 @@ export default class Header {
     constructor(spotifyService:SpotifyService) {
         this.spotifyService = spotifyService;
 
-        //var redirect_uri = 'http://localhost:3001/auth';
-        var redirect_uri = `${window.location.host}//${window.location.host}/auth`;
+        var redirect_uri = `${window.location.protocol}//${window.location.host}/auth`;
 
         this.loginUrl = `https://accounts.spotify.com/authorize?response_type=token&client_id=${this.client_id}&scope=user-read-private%20user-read-email%20playlist-modify-private
         &redirect_uri=${redirect_uri}`;

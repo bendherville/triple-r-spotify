@@ -25,9 +25,9 @@ System.register(['angular2/core', "../spotify/spotify.service"], function(export
                     var _this = this;
                     this.client_id = 'e37aec36cd5147cd87b5988fbf606724';
                     this.client_secret = '0dc0fab2797f436ea56e5982bb1dad3d';
-                    this.redirect_uri = 'http://localhost:3001/auth';
                     this.spotifyService = spotifyService;
-                    this.loginUrl = "https://accounts.spotify.com/authorize?response_type=token&client_id=" + this.client_id + "&scope=user-read-private%20user-read-email%20playlist-modify-private\n        &redirect_uri=" + this.redirect_uri;
+                    var redirect_uri = window.location.protocol + "//" + window.location.host + "/auth";
+                    this.loginUrl = "https://accounts.spotify.com/authorize?response_type=token&client_id=" + this.client_id + "&scope=user-read-private%20user-read-email%20playlist-modify-private\n        &redirect_uri=" + redirect_uri;
                     this.spotifyService.userProfile()
                         .then(function (profile) {
                         _this.userProfile = profile;
