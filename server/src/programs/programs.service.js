@@ -55,36 +55,47 @@ module.exports = class ActivitiesService {
 
                 var nightmare = Nightmare({ waitTimeout: 10000 });
 
-                var playlistAnchors = yield nightmare
-                    .goto(url)
-                    .wait(function () {
-                        return document.getElementsByClassName('playlist-track').length > 0;
-                    })
-                    .evaluate(() => {
-                        return $('.playlist-track td')
-                            .not('.trackId')
-                            .not('.trackShareUrl')
-                            .not('.noTrackContent')
-                            .map(function () {
-                                return this.innerText;
-                            })
-                            .toArray();
-                    });
+                try {
+
+                    var playlistAnchors = yield nightmare
+                        .goto(url)
+                        .wait(function () {
+                            return document.getElementsByClassName('playlist-track').length > 0;
+                        })
+                        .evaluate(() => {
+                            return $('.playlist-track td')
+                                .not('.trackId')
+                                .not('.trackShareUrl')
+                                .not('.noTrackContent')
+                                .map(function () {
+                                    return this.innerText;
+                                })
+                                .toArray();
+                        });
+
+                } catch (err) {
+                    reject(err);
+                }
 
                 console.dir(playlistAnchors);
 
-                var artistTracks;
-                if (playlistAnchors) {
-                    artistTracks = playlistAnchors
-                        .filter(playlistAnchor => playlistAnchor != 'info')
-                        .map(artistTrackText => {
-                            var [artist, track] = artistTrackText.split(' - ');
-                            return {artist, track};
-                        });
-                }
-                console.log(artistTracks);
-
                 yield nightmare.end();
+
+                try {
+                    var artistTracks;
+                    if (playlistAnchors) {
+                        artistTracks = playlistAnchors
+                            .filter(playlistAnchor => playlistAnchor != 'info')
+                            .map(artistTrackText => {
+                                var [artist, track] = artistTrackText.split(' - ');
+                                return {artist, track};
+                            });
+                    }
+                } catch (err) {
+                    reject(err);
+                }
+
+                console.log(artistTracks);
 
                 return artistTracks;
             })(function (err, artistTracks) {
