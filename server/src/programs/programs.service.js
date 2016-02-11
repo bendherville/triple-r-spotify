@@ -53,53 +53,43 @@ module.exports = class ActivitiesService {
             vo(function *() {
                 var url = 'http://airnet.org.au/program/javascriptEmbed.php?station=4&rpid=' + programId + '&view=3&helperStart=http%3A%2F%2Fwww.rrr.org.au';
 
-                var nightmare = Nightmare({ waitTimeout: 10000 });
+                var nightmare = Nightmare({waitTimeout: 10000});
 
-                try {
-
-                    var playlistAnchors = yield nightmare
-                        .goto(url)
-                        .wait(function () {
-                            return document.getElementsByClassName('playlist-track').length > 0;
-                        })
-                        .evaluate(() => {
-                            return $('.playlist-track td')
-                                .not('.trackId')
-                                .not('.trackShareUrl')
-                                .not('.noTrackContent')
-                                .map(function () {
-                                    return this.innerText;
-                                })
-                                .toArray();
-                        });
-
-                } catch (err) {
-                    reject(err);
-                }
+                var playlistAnchors = yield nightmare
+                    .goto(url)
+                    .wait(function () {
+                        return document.getElementsByClassName('playlist-track').length > 0;
+                    })
+                    .evaluate(() => {
+                        return $('.playlist-track td')
+                            .not('.trackId')
+                            .not('.trackShareUrl')
+                            .not('.noTrackContent')
+                            .map(function () {
+                                return this.innerText;
+                            })
+                            .toArray();
+                    });
 
                 console.dir(playlistAnchors);
 
                 yield nightmare.end();
 
-                try {
-                    var artistTracks;
-                    if (playlistAnchors) {
-                        artistTracks = playlistAnchors
-                            .filter(playlistAnchor => playlistAnchor != 'info')
-                            .map(artistTrackText => {
-                                var [artist, track] = artistTrackText.split(' - ');
-                                return {artist, track};
-                            });
-                    }
-                } catch (err) {
-                    reject(err);
+                var artistTracks;
+                if (playlistAnchors) {
+                    artistTracks = playlistAnchors
+                        .filter(playlistAnchor => playlistAnchor != 'info')
+                        .map(artistTrackText => {
+                            var [artist, track] = artistTrackText.split(' - ');
+                            return {artist, track};
+                        });
                 }
 
                 console.log(artistTracks);
 
                 return artistTracks;
             })(function (err, artistTracks) {
-                if (err) return console.log(err);
+                if (err) reject(err);
                 resolve(artistTracks);
             });
         });
