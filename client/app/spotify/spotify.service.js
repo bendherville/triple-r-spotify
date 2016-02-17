@@ -24,25 +24,32 @@ System.register(["angular2/core", "angular2/http"], function(exports_1) {
                     this.http = http;
                 }
                 SpotifyService.prototype.authenticate = function (accessToken) {
-                    this.accessToken = accessToken;
+                    localStorage.setItem('accessToken', accessToken);
                 };
                 SpotifyService.prototype.userProfile = function () {
                     var _this = this;
-                    return new Promise(function (resolve) {
+                    return new Promise(function (resolve, reject) {
                         if (_this.isAuthenticated()) {
-                            _this.http.get(SpotifyService.BASE_API_URL + "/v1/me", _this.createOptions())
-                                .subscribe(function (profile) {
-                                resolve(profile.json());
-                            });
+                            if (localStorage.getItem('userProfile')) {
+                                resolve(JSON.parse(localStorage.getItem('userProfile')));
+                            }
+                            else {
+                                _this.http.get(SpotifyService.BASE_API_URL + "/v1/me", _this.createOptions())
+                                    .subscribe(function (profile) {
+                                    var userProfile = profile.json();
+                                    localStorage.setItem('userProfile', JSON.stringify(userProfile));
+                                    resolve(userProfile);
+                                });
+                            }
                         }
                         else {
-                            resolve();
+                            reject();
                         }
                     });
                 };
                 SpotifyService.prototype.createOptions = function () {
                     var headers = new http_1.Headers();
-                    headers.append('Authorization', "Bearer " + this.accessToken);
+                    headers.append('Authorization', "Bearer " + this.getAccessToken());
                     headers.append('Content-Type', "application/json");
                     return {
                         headers: headers
@@ -80,7 +87,8 @@ System.register(["angular2/core", "angular2/http"], function(exports_1) {
                                     return {
                                         uri: track.uri,
                                         name: track.name,
-                                        artist: track.artists[0].name
+                                        artist: track.artists[0].name,
+                                        albumImage: track.album && track.album.images ? track.album.images[0] : undefined
                                     };
                                 });
                                 resolve(tracks);
@@ -126,8 +134,12 @@ System.register(["angular2/core", "angular2/http"], function(exports_1) {
                     });
                 };
                 SpotifyService.prototype.isAuthenticated = function () {
-                    return this.accessToken != undefined;
+                    return this.getAccessToken() != undefined;
                 };
+                SpotifyService.prototype.getAccessToken = function () {
+                    return localStorage.getItem('accessToken');
+                };
+                ;
                 SpotifyService.BASE_API_URL = 'https://api.spotify.com';
                 SpotifyService = __decorate([
                     core_1.Injectable(), 

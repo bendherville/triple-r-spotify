@@ -1,46 +1,44 @@
 import {Component} from 'angular2/core';
 import {SpotifyService} from "../spotify/spotify.service";
+import {Router} from "angular2/router";
 
 spotifyService:SpotifyService;
 @Component({
     selector: 'header',
     template: `
         <section class="page-header">
-            <a [href]="loginUrl" *ngIf="!userProfile">Login</a>
-            <section *ngIf="userProfile">
+            <section class="profile" *ngIf="userProfile">
                 {{ userProfile.email }}
             </section>
         </section>
     `,
     styles: [`
         .page-header {
-            height: 39px;
             width: 100%;
-            background: transparent  no-repeat center left;
+            background: aliceblue no-repeat center left;
+        }
+        .profile {
+            text-align: right;
+            padding: 10px;
+            color: darkgrey;
         }
         `]
 })
 export default class Header {
 
-    public loginUrl;
     public userProfile;
-
-    private client_id = 'e37aec36cd5147cd87b5988fbf606724';
-    private client_secret = '0dc0fab2797f436ea56e5982bb1dad3d';
 
     private spotifyService;
 
-    constructor(spotifyService:SpotifyService) {
+    constructor(spotifyService:SpotifyService, router:Router) {
         this.spotifyService = spotifyService;
-
-        var redirect_uri = `${window.location.protocol}//${window.location.host}/auth`;
-
-        this.loginUrl = `https://accounts.spotify.com/authorize?response_type=token&client_id=${this.client_id}&scope=user-read-private%20user-read-email%20playlist-modify-private
-        &redirect_uri=${redirect_uri}`;
 
         this.spotifyService.userProfile()
             .then(profile => {
                 this.userProfile = profile;
+            })
+            .catch(() => {
+                router.navigate(['Login']);
             });
     }
 }

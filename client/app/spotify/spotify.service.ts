@@ -7,32 +7,37 @@ export class SpotifyService {
     private static BASE_API_URL = 'https://api.spotify.com';
 
     private http;
-    private accessToken;
 
     constructor(http:Http) {
         this.http = http;
     }
 
     authenticate(accessToken) {
-        this.accessToken = accessToken;
+        localStorage.setItem('accessToken', accessToken);
     }
 
     userProfile() {
-        return new Promise(resolve => {
+        return new Promise((resolve, reject) => {
             if (this.isAuthenticated()) {
-                this.http.get(`${SpotifyService.BASE_API_URL}/v1/me`, this.createOptions())
-                    .subscribe(profile => {
-                        resolve(profile.json());
-                    });
+                if (localStorage.getItem('userProfile')) {
+                    resolve(JSON.parse(localStorage.getItem('userProfile')));
+                } else {
+                    this.http.get(`${SpotifyService.BASE_API_URL}/v1/me`, this.createOptions())
+                        .subscribe(profile => {
+                            var userProfile = profile.json();
+                            localStorage.setItem('userProfile', JSON.stringify(userProfile));
+                            resolve(userProfile);
+                        });
+                }
             } else {
-                resolve();
+                reject();
             }
         });
     }
 
     private createOptions() {
         var headers = new Headers();
-        headers.append('Authorization', `Bearer ${this.accessToken}`);
+        headers.append('Authorization', `Bearer ${this.getAccessToken()}`);
         headers.append('Content-Type', `application/json`);
 
         return {
@@ -75,7 +80,8 @@ export class SpotifyService {
                                 return {
                                     uri: track.uri,
                                     name: track.name,
-                                    artist: track.artists[0].name
+                                    artist: track.artists[0].name,
+                                    albumImage: track.album && track.album.images ? track.album.images[0] : undefined;
                                 };
                             });
 
@@ -127,6 +133,10 @@ export class SpotifyService {
     }
 
     private isAuthenticated() {
-        return this.accessToken != undefined;
+        return this.getAccessToken() != undefined;
     }
+
+    private getAccessToken() {
+        return localStorage.getItem('accessToken');
+    };
 }

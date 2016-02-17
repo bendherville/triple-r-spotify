@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './programs/programs', './auth/auth'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './programs/programs', './auth/auth', './login/login'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', './programs/programs', './a
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, programs_1, auth_1;
+    var core_1, router_1, programs_1, auth_1, login_1;
     var App;
     return {
         setters:[
@@ -23,6 +23,9 @@ System.register(['angular2/core', 'angular2/router', './programs/programs', './a
             },
             function (auth_1_1) {
                 auth_1 = auth_1_1;
+            },
+            function (login_1_1) {
+                login_1 = login_1_1;
             }],
         execute: function() {
             App = (function () {
@@ -36,9 +39,10 @@ System.register(['angular2/core', 'angular2/router', './programs/programs', './a
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }),
                     router_1.RouteConfig([
-                        { path: '/', redirectTo: ['Programs'] },
+                        { path: '/', redirectTo: ['Login'] },
                         { path: '/programs', name: 'Programs', component: programs_1.default },
-                        { path: '/auth', name: 'Auth', component: auth_1.default }
+                        { path: '/auth', name: 'Auth', component: auth_1.default },
+                        { path: '/login', name: 'Login', component: login_1.default }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], App);
