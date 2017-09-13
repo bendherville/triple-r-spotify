@@ -7,7 +7,7 @@ module.exports = class ActivitiesService {
 
     findAll() {
         return new Promise((resolve, reject) => {
-            new YQL('select * from data.html.cssselect where url="http://www.rrr.org.au/programs/program-guide/" and css=".program a"')
+            new YQL('select * from data.html.cssselect where url="https://www.rrr.org.au/programs/program-guide/" and css=".program a"')
                 .exec((error, response) => {
 
                     if (response
@@ -33,7 +33,7 @@ module.exports = class ActivitiesService {
     };
 
     createId(program) {
-        var results = /http:\/\/www.rrr.org.au\/program\/(.+?)\//.exec(program.href);
+        var results = /https:\/\/www.rrr.org.au\/program\/(.+?)\//.exec(program.href);
         return results[1];
     };
 
@@ -51,7 +51,7 @@ module.exports = class ActivitiesService {
         return new Promise((resolve, reject) => {
 
             vo(function *() {
-                var url = 'http://airnet.org.au/program/javascriptEmbed.php?station=4&rpid=' + programId + '&view=3&helperStart=http%3A%2F%2Fwww.rrr.org.au';
+                var url = 'https://airnet.org.au/program/javascriptEmbed.php?station=4&rpid=' + programId + '&view=3&helperStart=http%3A%2F%2Fwww.rrr.org.au';
 
                 var nightmare = Nightmare({waitTimeout: 10000});
 
