@@ -7,38 +7,43 @@ module.exports = class ActivitiesService {
 
     findAll() {
         return new Promise((resolve, reject) => {
-            var url = "https://www.rrr.org.au/programs/program-guide/";
+            vo(function *() {
+                var url = "https://www.rrr.org.au/programs/program-guide/";
 
-            var nightmare = Nightmare({waitTimeout: 10000});
+                var nightmare = Nightmare({waitTimeout: 10000});
 
-            var programAnchors = yield nightmare
-                .goto(url)
-                .wait(function () {
-                    return document.getElementsByClassName('program').length > 0;
-                })
-                .evaluate(() => {
-                    return $('.program a').toArray();
-                });
+                var programAnchors = yield nightmare
+                    .goto(url)
+                    .wait(function () {
+                        return document.getElementsByClassName('program').length > 0;
+                    })
+                    .evaluate(() => {
+                        return $('.program a').toArray();
+                    });
 
-            console.dir(playlistAnchors);
+                console.dir(playlistAnchors);
 
-            yield nightmare.end();
+                yield nightmare.end();
 
-            if (programAnchors) {
+                if (programAnchors) {
 
-                var programs = programAnchors.map(program => {
-                    return {
-                        id: this.createId(program),
-                        name: program.content,
-                        url: program.href
-                    };
-                });
-                programs = this.uniqueSort(programs);
+                    var programs = programAnchors.map(program => {
+                        return {
+                            id: this.createId(program),
+                            name: program.content,
+                            url: program.href
+                        };
+                    });
+                    programs = this.uniqueSort(programs);
 
+                    return programs;
+                } else {
+                    throw Error('No programs found');
+                }
+            })(function (err, programs) {
+                if (err) reject(err);
                 resolve(programs);
-            } else {
-                reject('No programs found: ' + error);
-            }
+            });
             //
             // new YQL('select * from data.html.cssselect where url="https://www.rrr.org.au/programs/program-guide/" and css=".program a"')
             //     .exec((error, response) => {
