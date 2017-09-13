@@ -7,28 +7,61 @@ module.exports = class ActivitiesService {
 
     findAll() {
         return new Promise((resolve, reject) => {
-            new YQL('select * from data.html.cssselect where url="https://www.rrr.org.au/programs/program-guide/" and css=".program a"')
-                .exec((error, response) => {
+            var url = "https://www.rrr.org.au/programs/program-guide/";
 
-                    if (response
-                        && response.query
-                        && response.query.results
-                        && response.query.results.results
-                        && response.query.results.results.a) {
+            var nightmare = Nightmare({waitTimeout: 10000});
 
-                        var programs = response.query.results.results.a.map(program => {
-                            return {
-                                id: this.createId(program),
-                                name: program.content,
-                                url: program.href
-                            };
-                        });
-                        programs = this.uniqueSort(programs);
-                        resolve(programs);
-                    } else {
-                        reject('No programs found: ' + error);
-                    }
+            var programAnchors = yield nightmare
+                .goto(url)
+                .wait(function () {
+                    return document.getElementsByClassName('program').length > 0;
+                })
+                .evaluate(() => {
+                    return $('.program a').toArray();
                 });
+
+            console.dir(playlistAnchors);
+
+            yield nightmare.end();
+
+            if (playlistAnchors) {
+
+                var programs = playlistAnchors.map(program => {
+                    return {
+                        id: this.createId(program),
+                        name: program.content,
+                        url: program.href
+                    };
+                });
+                programs = this.uniqueSort(programs);
+
+                resolve(programs);
+            } else {
+                reject('No programs found: ' + error);
+            }
+            //
+            // new YQL('select * from data.html.cssselect where url="https://www.rrr.org.au/programs/program-guide/" and css=".program a"')
+            //     .exec((error, response) => {
+            //
+            //         if (response
+            //             && response.query
+            //             && response.query.results
+            //             && response.query.results.results
+            //             && response.query.results.results.a) {
+            //
+            //             var programs = response.query.results.results.a.map(program => {
+            //                 return {
+            //                     id: this.createId(program),
+            //                     name: program.content,
+            //                     url: program.href
+            //                 };
+            //             });
+            //             programs = this.uniqueSort(programs);
+            //             resolve(programs);
+            //         } else {
+            //             reject('No programs found: ' + error);
+            //         }
+            //     });
         });
     };
 

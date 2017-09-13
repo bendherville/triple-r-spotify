@@ -37,8 +37,8 @@
       <file leaf-file-name="programs.service.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/src/programs/programs.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
+            <state relative-caret-position="632">
+              <caret line="63" column="22" lean-forward="false" selection-start-line="41" selection-start-column="14" selection-end-line="63" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -660,7 +660,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23224352" sideWeight="0.492674" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23224352" sideWeight="0.492674" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32283464" sideWeight="0.497558" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -766,7 +766,8 @@
     <MESSAGE value="pre-commit hook test" />
     <MESSAGE value="Update URLs to https" />
     <MESSAGE value="Use relative urls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use relative urls" />
+    <MESSAGE value="Include error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Include error" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1155,8 +1156,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/programs/programs.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
+        <state relative-caret-position="632">
+          <caret line="63" column="22" lean-forward="false" selection-start-line="41" selection-start-column="14" selection-end-line="63" selection-end-column="22" />
           <folding />
         </state>
       </provider>
