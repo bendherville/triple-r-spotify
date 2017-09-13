@@ -24,9 +24,9 @@ module.exports = class ActivitiesService {
 
             yield nightmare.end();
 
-            if (playlistAnchors) {
+            if (programAnchors) {
 
-                var programs = playlistAnchors.map(program => {
+                var programs = programAnchors.map(program => {
                     return {
                         id: this.createId(program),
                         name: program.content,
