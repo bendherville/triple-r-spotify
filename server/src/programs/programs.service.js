@@ -26,7 +26,7 @@ module.exports = class ActivitiesService {
                         programs = this.uniqueSort(programs);
                         resolve(programs);
                     } else {
-                        reject('No programs found');
+                        reject('No programs found: ' + error);
                     }
                 });
         });

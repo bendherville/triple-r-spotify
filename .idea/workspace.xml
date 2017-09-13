@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e6922bb2-137f-4d10-935c-bd499b977a85" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/programs/programs.service.ts" afterPath="$PROJECT_DIR$/client/app/programs/programs.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/programs/programs.service.js" afterPath="$PROJECT_DIR$/server/src/programs/programs.service.js" />
     </list>
     <ignored path="triple-r-spotify.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="programs.service.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="programs.service.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/src/programs/programs.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="53" column="32" lean-forward="false" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+            <state relative-caret-position="357">
+              <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -64,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="programs.service.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="programs.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/app/programs/programs.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -148,9 +148,9 @@
         <option value="$PROJECT_DIR$/client/app/programs/programs.ts" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.git/hooks/pre-commit" />
-        <option value="$PROJECT_DIR$/server/src/programs/programs.service.js" />
         <option value="$PROJECT_DIR$/server/src/server.js" />
         <option value="$PROJECT_DIR$/client/app/programs/programs.service.ts" />
+        <option value="$PROJECT_DIR$/server/src/programs/programs.service.js" />
       </list>
     </option>
   </component>
@@ -660,7 +660,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23224352" sideWeight="0.492674" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23224352" sideWeight="0.492674" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32283464" sideWeight="0.497558" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -765,7 +765,8 @@
     <MESSAGE value="Stylin" />
     <MESSAGE value="pre-commit hook test" />
     <MESSAGE value="Update URLs to https" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update URLs to https" />
+    <MESSAGE value="Use relative urls" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use relative urls" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1136,14 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/programs/programs.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="32" lean-forward="false" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1156,6 +1149,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/programs/programs.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
           <folding />
         </state>
       </provider>
