@@ -21,9 +21,9 @@ module.exports = class ActivitiesService {
                         return $('.program a').toArray();
                     });
 
-                console.dir(playlistAnchors);
-
                 yield nightmare.end();
+
+                console.dir(programAnchors);
 
                 if (programAnchors) {
 
@@ -44,29 +44,6 @@ module.exports = class ActivitiesService {
                 if (err) reject(err);
                 resolve(programs);
             });
-            //
-            // new YQL('select * from data.html.cssselect where url="https://www.rrr.org.au/programs/program-guide/" and css=".program a"')
-            //     .exec((error, response) => {
-            //
-            //         if (response
-            //             && response.query
-            //             && response.query.results
-            //             && response.query.results.results
-            //             && response.query.results.results.a) {
-            //
-            //             var programs = response.query.results.results.a.map(program => {
-            //                 return {
-            //                     id: this.createId(program),
-            //                     name: program.content,
-            //                     url: program.href
-            //                 };
-            //             });
-            //             programs = this.uniqueSort(programs);
-            //             resolve(programs);
-            //         } else {
-            //             reject('No programs found: ' + error);
-            //         }
-            //     });
         });
     };
 
