@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6922bb2-137f-4d10-935c-bd499b977a85" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/programs/programs.service.js" afterPath="$PROJECT_DIR$/server/src/programs/programs.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/spotify/spotify.service.js" afterPath="$PROJECT_DIR$/client/app/spotify/spotify.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/spotify/spotify.service.js.map" afterPath="$PROJECT_DIR$/client/app/spotify/spotify.service.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/spotify/spotify.service.ts" afterPath="$PROJECT_DIR$/client/app/spotify/spotify.service.ts" />
     </list>
     <ignored path="triple-r-spotify.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,7 +56,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -87,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spotify.service.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="spotify.service.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/app/spotify/spotify.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+            <state relative-caret-position="-195">
+              <caret line="27" column="63" lean-forward="false" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -201,11 +202,11 @@
         <option value="$PROJECT_DIR$/client/app/programs/programs.ts" />
         <option value="$PROJECT_DIR$/.git/hooks/pre-commit" />
         <option value="$PROJECT_DIR$/client/app/auth/auth.ts" />
-        <option value="$PROJECT_DIR$/client/app/spotify/spotify.service.ts" />
         <option value="$PROJECT_DIR$/server/src/server.js" />
         <option value="$PROJECT_DIR$/client/app/programs/programs.service.ts" />
         <option value="$PROJECT_DIR$/server/src/programs/programs.service.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/client/app/spotify/spotify.service.ts" />
       </list>
     </option>
   </component>
@@ -265,53 +266,7 @@
               <item name="triple-r-spotify" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="triple-r-spotify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="triple-r-spotify" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="triple-r-spotify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="triple-r-spotify" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="triple-r-spotify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="triple-r-spotify" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="programs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="triple-r-spotify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="triple-r-spotify" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="spotify" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="triple-r-spotify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="triple-r-spotify" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="triple-r-spotify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="triple-r-spotify" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="triple-r-spotify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="triple-r-spotify" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="programs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -858,7 +813,8 @@
     <MESSAGE value="Update compiled client code" />
     <MESSAGE value="Fix log" />
     <MESSAGE value="Add logging" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add logging" />
+    <MESSAGE value="Fix programs service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix programs service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1216,28 +1172,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/spotify/spotify.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/programs/programs.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="23" column="61" lean-forward="false" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1263,6 +1201,24 @@
         <state relative-caret-position="60">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/spotify/spotify.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-195">
+          <caret line="27" column="63" lean-forward="false" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

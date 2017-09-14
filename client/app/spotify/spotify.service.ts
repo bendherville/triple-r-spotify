@@ -53,10 +53,17 @@ export class SpotifyService {
             options.search.set('type', 'track');
             options.search.set('limit', '1');
 
-            this.http.get(`${SpotifyService.BASE_API_URL}/v1/search`, options)
-                .subscribe(results => {
-                    resolve(results.json());
-                });
+            try {
+                this.http.get(`${SpotifyService.BASE_API_URL}/v1/search`, options)
+                    .subscribe(results => {
+                            resolve(results.json());
+                        },
+                        err => {
+                            resolve();
+                        });
+            } catch (err) {
+                resolve();
+            }
         });
     }
 
@@ -74,7 +81,7 @@ export class SpotifyService {
                         console.dir(searchResults);
 
                         var tracks = searchResults
-                            .filter(result => result.tracks && result.tracks.items && result.tracks.items.length >= 1)
+                            .filter(result => result && result.tracks && result.tracks.items && result.tracks.items.length >= 1)
                             .map(result => {
                                 var track = result.tracks.items[0];
                                 return {

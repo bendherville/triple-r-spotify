@@ -63,10 +63,17 @@ System.register(["angular2/core", "angular2/http"], function(exports_1) {
                         options.search.set('q', "track:" + trackName + "+artist:" + artist);
                         options.search.set('type', 'track');
                         options.search.set('limit', '1');
-                        _this.http.get(SpotifyService.BASE_API_URL + "/v1/search", options)
-                            .subscribe(function (results) {
-                            resolve(results.json());
-                        });
+                        try {
+                            _this.http.get(SpotifyService.BASE_API_URL + "/v1/search", options)
+                                .subscribe(function (results) {
+                                resolve(results.json());
+                            }, function (err) {
+                                resolve();
+                            });
+                        }
+                        catch (err) {
+                            resolve();
+                        }
                     });
                 };
                 SpotifyService.prototype.createPlaylist = function (playlist) {
@@ -81,7 +88,7 @@ System.register(["angular2/core", "angular2/http"], function(exports_1) {
                                 .then(function (searchResults) {
                                 console.dir(searchResults);
                                 var tracks = searchResults
-                                    .filter(function (result) { return result.tracks && result.tracks.items && result.tracks.items.length >= 1; })
+                                    .filter(function (result) { return result && result.tracks && result.tracks.items && result.tracks.items.length >= 1; })
                                     .map(function (result) {
                                     var track = result.tracks.items[0];
                                     return {
