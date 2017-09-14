@@ -81,7 +81,7 @@ export class SpotifyService {
                                     uri: track.uri,
                                     name: track.name,
                                     artist: track.artists[0].name,
-                                    albumImage: track.album && track.album.images ? track.album.images[0] : undefined;
+                                    albumImage: track.album && track.album.images ? track.album.images[0] : undefined
                                 };
                             });
 

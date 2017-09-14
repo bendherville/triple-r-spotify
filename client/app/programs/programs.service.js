@@ -26,7 +26,7 @@ System.register(["angular2/core", "angular2/http"], function(exports_1) {
                 ProgramsService.prototype.findPrograms = function () {
                     var _this = this;
                     return new Promise(function (resolve) {
-                        _this.http.get('http://localhost:3000/programs')
+                        _this.http.get('/programs')
                             .subscribe(function (programs) {
                             resolve(programs.json());
                         });
@@ -36,7 +36,7 @@ System.register(["angular2/core", "angular2/http"], function(exports_1) {
                 ProgramsService.prototype.getLatestPlaylist = function (programId) {
                     var _this = this;
                     return new Promise(function (resolve) {
-                        _this.http.get("http://localhost:3000/programs/" + programId + "/latestplaylist")
+                        _this.http.get("/programs/" + programId + "/latestplaylist")
                             .subscribe(function (playlist) {
                             resolve(playlist.json());
                         });

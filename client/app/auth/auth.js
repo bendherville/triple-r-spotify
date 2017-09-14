@@ -8,7 +8,7 @@ System.register(['angular2/core', "angular2/router", "../spotify/spotify.service
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, spotify_service_1, router_2;
+    var core_1, router_1, spotify_service_1;
     var Auth;
     return {
         setters:[
@@ -17,7 +17,6 @@ System.register(['angular2/core', "angular2/router", "../spotify/spotify.service
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-                router_2 = router_1_1;
             },
             function (spotify_service_1_1) {
                 spotify_service_1 = spotify_service_1_1;
@@ -30,7 +29,7 @@ System.register(['angular2/core', "angular2/router", "../spotify/spotify.service
                         var _a = keyValue.split('='), key = _a[0], value = _a[1];
                         params[key] = value;
                         return params;
-                    }, {});
+                    }, { access_token: '' });
                     spotifyService.authenticate(hashParams.access_token);
                     router.navigate(['Programs']);
                 }
@@ -39,7 +38,7 @@ System.register(['angular2/core', "angular2/router", "../spotify/spotify.service
                         selector: 'auth',
                         template: '<div>Authenticating...</div>'
                     }), 
-                    __metadata('design:paramtypes', [router_1.RouteParams, spotify_service_1.SpotifyService, router_2.Router])
+                    __metadata('design:paramtypes', [router_1.RouteParams, spotify_service_1.SpotifyService, router_1.Router])
                 ], Auth);
                 return Auth;
             })();

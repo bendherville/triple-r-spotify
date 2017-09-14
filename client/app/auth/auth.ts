@@ -1,8 +1,6 @@
 import {Component} from 'angular2/core';
-import {RouteParams} from "angular2/router";
-import {Http} from "angular2/http";
+import {RouteParams, Router} from "angular2/router";
 import {SpotifyService} from "../spotify/spotify.service";
-import {Router} from "angular2/router";
 
 @Component({
     selector: 'auth',
@@ -18,7 +16,7 @@ export default class Auth {
             var [key, value] = keyValue.split('=');
             params[key] = value;
             return params;
-        }, {});
+        }, {access_token: ''});
         spotifyService.authenticate(hashParams.access_token);
         router.navigate(['Programs']);
     }
