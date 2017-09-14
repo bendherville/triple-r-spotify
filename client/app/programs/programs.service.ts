@@ -12,7 +12,7 @@ export class ProgramsService {
 
     findPrograms() {
         return new Promise(resolve => {
-            this.http.get('/programs')
+            this.http.get('http://rrr.bendherville.ninja:3000/programs')
                 .subscribe(programs => {
                     resolve(programs.json());
                 });
@@ -21,7 +21,7 @@ export class ProgramsService {
 
     getLatestPlaylist(programId) {
         return new Promise(resolve => {
-            this.http.get(`/programs/${programId}/latestplaylist`)
+            this.http.get(`http://rrr.bendherville.ninja:3000/programs/${programId}/latestplaylist`)
                 .subscribe(playlist => {
                     resolve(playlist.json());
                 });
