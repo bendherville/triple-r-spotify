@@ -3,7 +3,7 @@ var YQL = require('yql');
 var Nightmare = require('nightmare');
 var vo = require('vo');
 
-module.exports = class ActivitiesService {
+module.exports = class ProgramsService {
 
     findAll() {
 
@@ -27,12 +27,23 @@ module.exports = class ActivitiesService {
                         return document.getElementsByClassName('program').length > 0;
                     })
                     .evaluate(() => {
-                        return $('.program a').toArray();
+                        var anchors = $('.program a');
+                        return $.makeArray(anchors.map(k => {
+                            var a = anchors[k];
+                            return {
+                                href: a.href,
+                                content: a.innerText
+                            }
+                        }));
                     });
 
                 yield nightmare.end();
 
                 console.dir(programAnchors);
+
+                return programAnchors;
+            })((err, programAnchors) => {
+                if (err) reject(err);
 
                 if (programAnchors) {
 
@@ -45,18 +56,16 @@ module.exports = class ActivitiesService {
                     });
                     programs = this.uniqueSort(programs);
 
-                    return programs;
+                    resolve(programs);
                 } else {
-                    throw Error('No programs found');
+                    reject('No programs found');
                 }
-            })(function (err, programs) {
-                if (err) reject(err);
-                resolve(programs);
             });
         });
     };
 
     createId(program) {
+        console.log(program);
         var results = /https:\/\/www.rrr.org.au\/program\/(.+?)\//.exec(program.href);
         return results[1];
     };
