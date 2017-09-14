@@ -6,8 +6,17 @@ var vo = require('vo');
 module.exports = class ActivitiesService {
 
     findAll() {
+
+        console.log("findAll()");
+
         return new Promise((resolve, reject) => {
+
+            console.log("findAll() promise");
+
             vo(function *() {
+
+                console.log("findAll() vo");
+
                 var url = "https://www.rrr.org.au/programs/program-guide/";
 
                 var nightmare = Nightmare({waitTimeout: 10000});
